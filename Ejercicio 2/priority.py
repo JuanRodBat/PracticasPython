@@ -1,5 +1,5 @@
 from typing import Any, Dict, List, Tuple
-import json
+import json, input
 
 Filter = Tuple[str, str, Any]
 
@@ -170,15 +170,15 @@ def process_items(
 
 
 def main() -> None:
-    data = [
-    ]
+    
+    data = input.data
 
     filters: List[Filter] = [
         ("weight", "=", 3),
         ("width", ">", 2),
     ]
     #ASC o DESC
-    order = "DESC"
+    order = "ASC"
 
     result = process_items(data, filters, order)
     print(json.dumps(result, ensure_ascii=False, indent=2))
